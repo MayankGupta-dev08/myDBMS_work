@@ -1,22 +1,23 @@
 CREATE TABLE nitwStudent (
-    -- student_id int primary key,
     student_id INT,
-    -- student_id INT auto_increment,
-    s_name VARCHAR(20) not null,
-    -- major VARCHAR(10) unique,
+    s_name VARCHAR(20) NOT NULL,
     major VARCHAR(10) DEFAULT 'undecided',
-    PRIMARY KEY(student_id)
-    -- primary key is an attribute which is both not null and unique
+    PRIMARY KEY (student_id)
 );
 
+-- to briefly see the attributes and properties of the table
 DESCRIBE nitwStudent;
 
+-- to drop the table from the database
 drop table nitwStudent;
 
+-- to add a column in the table
 alter table nitwStudent add cgpa decimal(4,2);
 
+-- to add a column in the table
 alter table nitwStudent drop column cgpa;
 
+-- to show the table
 select * from nitwStudent;
 
 insert into nitwStudent values(1, 'Jack Daniels', 'Biology');
@@ -47,3 +48,4 @@ select s_name, major from nitwStudent limit 2;
 select s_name, major from nitwStudent order by s_name limit 2;
 select s_name, major from nitwStudent where major='Biology' or major='Physics' order by student_id asc;
 select * from nitwStudent where s_name in ('Claire', 'Kate', 'Mike');
+select * from nitwStudent where major in ('Biology', 'Chemistry') and student_id >2;
